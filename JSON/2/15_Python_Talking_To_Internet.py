@@ -535,6 +535,3 @@ Code Challenge
   Hint: 
     http://ctabustracker.com/bustime/map/getStopPredictions.jsp?route=22&stop=14787 
 """
-
-
-
