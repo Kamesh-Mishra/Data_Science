@@ -1,0 +1,75 @@
+
+"""
+Code Challenge
+  Name: 
+    Webscrapping ICC Cricket Page
+  Filename: 
+    icccricket.py
+  Problem Statement:
+    Write a Python code to Scrap data from ICC Ranking's 
+    page and get the ranking table for ODI's (Men). 
+    Create a DataFrame using pandas to store the information.
+  Hint: 
+    https://www.icc-cricket.com/rankings/mens/team-rankings/odi 
+    
+    
+    #https://www.icc-cricket.com/rankings/mens/team-rankings/t20i
+    #https://www.icc-cricket.com/rankings/mens/team-rankings/test 
+    
+"""
+
+
+import pandas as pd
+from selenium import webdriver
+
+
+url = "https://www.icc-cricket.com/rankings/mens/team-rankings/odi"
+
+
+driver = webdriver.Firefox(executable_path="E:\geckodriver\geckodriver.exe")
+
+# Opening the submission url
+driver.get(url)
+
+
+all_tables   =  driver.find_element_by_class_name('table')
+
+
+df = pd.DataFrame(all_tables)
+
+#Generate lists
+A=[]
+B=[]
+C=[]
+D=[]
+E=[]
+
+
+for row in all_tables.find_elements('tr'):
+    cells = row.find_elements('td')
+    states = row.find_elements('th')
+    if len(cells) == 5:
+        A.append(cells[0].text.strip())
+        B.append(cells[1].text.strip())
+        C.append(cells[2].text.strip())
+        D.append(cells[3].text.strip())
+        E.append(cells[4].text.strip())
+        
+
+
+
+from collections import OrderedDict
+
+col_name = ["Pos","Team","Weighted Matches","Points","Rating"]
+col_data = OrderedDict(zip(col_name,[A,B,C,D,E]))
+
+# If you want to store the data in a csv file
+
+df = pd.DataFrame(all_tables) 
+
+print(df)
+
+
+df.to_csv("rankingselenium.csv")
+
+driver.quit()
