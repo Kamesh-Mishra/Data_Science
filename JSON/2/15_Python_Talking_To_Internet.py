@@ -304,11 +304,18 @@ print(jsondata)
 
 
 # Find the Sunset and sunrise also
-jsondata["sys"]["sunrise"]
+c = jsondata["sys"]["sunrise"]
+print(c)
 
-jsondata["sys"]["sunset"]
+import time
 
+time.ctime(c)
 
+j = jsondata["sys"]["sunset"]
+
+print(j)
+
+time.ctime(j)
 
 #Or
 
