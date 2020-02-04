@@ -37,7 +37,7 @@ soup = BeautifulSoup(source,"lxml")
 
 all_tables=soup.find('table', class_ = "table")
 
-#print (all_tables)
+print (all_tables.tbody)
 
 
 
@@ -56,9 +56,9 @@ D=[]
 E=[]
 
 
-for row in all_tables.findAll('tr'):
+for row in all_tables.tbody.findAll('tr'):
     cells = row.findAll('td')
-    states = row.findAll('th')
+    
     if len(cells) == 5:
         A.append(cells[0].text.strip())
         B.append(cells[1].text.strip())
