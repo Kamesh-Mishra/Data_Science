@@ -32,10 +32,10 @@ driver = webdriver.Firefox(executable_path="E:\geckodriver\geckodriver.exe")
 driver.get(url)
 
 
-all_tables   =  driver.find_element_by_class_name('table')
+all_tables   =  driver.find_element_by_tag_name('tbody')
 
 
-df = pd.DataFrame(all_tables)
+#df = pd.DataFrame(all_tables)
 
 #Generate lists
 A=[]
@@ -45,9 +45,10 @@ D=[]
 E=[]
 
 
-for row in all_tables.find_elements('tr'):
-    cells = row.find_elements('td')
-    states = row.find_elements('th')
+for row in all_tables.find_elements_by_tag_name('tr'):
+    
+    cells = row.find_elements_by_tag_name('td')
+    
     if len(cells) == 5:
         A.append(cells[0].text.strip())
         B.append(cells[1].text.strip())
@@ -65,7 +66,7 @@ col_data = OrderedDict(zip(col_name,[A,B,C,D,E]))
 
 # If you want to store the data in a csv file
 
-df = pd.DataFrame(all_tables) 
+df = pd.DataFrame(col_data) 
 
 print(df)
 
