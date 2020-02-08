@@ -37,7 +37,7 @@ soup = BeautifulSoup(source,"lxml")
 
 all_tables=soup.find('table', class_ = "table")
 
-print (all_tables.tbody)
+#print (all_tables.tbody)
 
 
 
