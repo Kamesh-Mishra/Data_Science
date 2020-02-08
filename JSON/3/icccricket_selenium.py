@@ -71,6 +71,32 @@ df = pd.DataFrame(col_data)
 print(df)
 
 
-df.to_csv("rankingselenium.csv")
+
+
+import sqlite3
+
+
+# File based database ( connects if exists or creates a new one if it does not exists ) 
+conn = sqlite3.connect ( 'ranking.db' )
+
+
+# creating cursor
+c = conn.cursor()
+
+
+df.to_sql("rankingselenium", con=conn, if_exists = 'replace', index=False)
+
+
+
+
+
+# STEP 3
+c.execute("SELECT * FROM rankingselenium")
+# "SELECT * FROM employees WHERE last = 'Fernandes' "
+print ([print(i) for i in c.fetchall()] )
+
+
 
 driver.quit()
+
+
