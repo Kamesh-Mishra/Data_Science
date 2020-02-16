@@ -14,6 +14,7 @@ Code Challenge
     Plot the histogram using matplotlib (bucket size =100) and observe the shape.
     Calculate Standard Deviation and Variance. 
 """
+
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -21,4 +22,5 @@ import matplotlib.pyplot as plt
 dataa = np.random.normal(150, 20, 1000)
 
 
-plt.hist(dataa,bins=100,grid=False)
+plt.hist(dataa,bins=100)
+plt.show()
