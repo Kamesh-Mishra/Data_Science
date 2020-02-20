@@ -100,7 +100,6 @@ print (Employee.fullname(emp_1))
 print (Employee.fullname(emp_2))
 
 
-
 # class variable that holds the number of employees depending on the instances created 
 
 class Employee:
