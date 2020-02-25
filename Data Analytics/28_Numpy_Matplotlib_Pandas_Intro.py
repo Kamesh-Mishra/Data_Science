@@ -57,7 +57,7 @@ df.index
 
 
 #list the column names / column Indexes
-df.columns 
+df.columns
 
 
 #Check types for all the columns
@@ -76,9 +76,9 @@ If we need to select a range of rows, using their labels/index
 we can use method loc
 """
 
-df.loc[:1]
+df.loc[:1]            # row endpoint included here
 
-df.loc[10:20,['rank','sex']]
+df.loc[10:20,['rank','sex']]     #row endpoint included here
 
 
 """
@@ -89,9 +89,9 @@ using their positions we can use method iloc
 """
 df.iloc[:2]
 
-df.iloc[ 10:21 , [0,4] ]
+df.iloc[ 10:21 , [0,4] ]          
 
-
+df.iloc[ 10:21 , 0:4 ]                #row endpoint included here  ,, but column endpoint excluded
 
 #Select column rank and salary:
 df[['rank','salary']]
@@ -292,7 +292,7 @@ df["sex"].value_counts(dropna=False)
 
 # Create a new column called df.Child where the value is yes
 # if df.age is greater than 50 and no if not
-df['child'] = np.where(df['age']<18, 'yes', 'no')
+# df['child'] = np.where(df['age']<18, 'yes', 'no')
 
 
 # Iterating over rows 
@@ -806,3 +806,4 @@ plt.hist(customerWaitTime,bins=[25,30,35,40,45,50,55])
 plt.axis([25, 60, 0, 6]) 
 plt.xlabel('Seconds')
 plt.ylabel('Customers')
+plt.show()
