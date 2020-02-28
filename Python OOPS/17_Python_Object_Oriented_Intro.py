@@ -94,7 +94,7 @@ print ( emp_2.fullname() )
 
 # calling the methods from the class name, 
 # but we need to pass the instance
-# thats why the self object is passed
+# thats why the  self object is passed
 
 print (Employee.fullname(emp_1))
 print (Employee.fullname(emp_2))
