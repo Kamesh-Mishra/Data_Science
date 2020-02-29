@@ -93,7 +93,9 @@ class Book(object):
     def make_authoryear(self):
         self.authoryear = self.authorlast + '('+ self.year +' )'
 
+makeup = Book("Doe" , "John", "Good Book", "Chicago","Me Press", "2012")
 print(makeup.make_authoryear()) 
+
 # It will return None becuase make_authoyear has not return attributes
 
 
